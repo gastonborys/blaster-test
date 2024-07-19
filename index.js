@@ -137,7 +137,7 @@ app.post('/call/tts', (req, res) => {
 	});
 });
 
-app.post('/audio', (req, res) => {
+app.post('/audios', (req, res) => {
 	const data = {
 		uuid: uuidv4(),
 		...req.body,
@@ -154,7 +154,7 @@ app.post('/audio', (req, res) => {
 	});
 });
 
-app.get('/audio', (req, res) => {
+app.get('/audios', (req, res) => {
 
 	Audio.find().then(audios => {
 
