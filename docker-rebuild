@@ -1,0 +1,5 @@
+#/bin/sh
+docker stop blaster-test
+docker rm blaster-test
+docker image rm blaster-mock
+docker build -t blaster-mock .
