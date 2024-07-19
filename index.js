@@ -101,7 +101,12 @@ app.use((req, res, next) => {
 
 app.post('/call', (req, res) => {
 	
-	const call = new Call(req.body);
+	const data = {
+		uuid: uuidv4(),
+		...req.body,
+	};
+
+	const call = new Call(data);
 
 	call.save((err, call) => {
 		if (err) {
@@ -115,7 +120,12 @@ app.post('/call', (req, res) => {
 
 app.post('/call/tts', (req, res) => {
 	
-	const ttsCall = new TtsCall(req.body);
+	const data = {
+		uuid: uuidv4(),
+		...req.body,
+	};
+	
+	const ttsCall = new TtsCall(data);
 	
 	ttsCall.save((err, call) => {
 		if (err) {
@@ -158,7 +168,12 @@ app.get('/audio', (req, res) => {
 
 app.post('/tts-template', (req, res) => {
 	
-	const ttsTemplate = new TtsTemplate(req.body);
+	const data = {
+		uuid: uuidv4(),
+		...req.body,
+	};
+
+	const ttsTemplate = new TtsTemplate(data);
 	
 	ttsTemplate.save((err, ttsTemplate) => {
 		if (err) {
